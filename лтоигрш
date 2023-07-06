@@ -1,0 +1,23 @@
+from git import Repo
+
+# Путь к локальному репозиторию
+local_repo_path = '/путь/к/локальному/репозиторию'
+
+# Имя файла для загрузки
+file_name = 'файл.txt'
+
+# Коммит и сообщение коммита
+commit_message = 'Добавление файла'
+
+# Инициализация локального репозитория
+repo = Repo(local_repo_path)
+
+# Добавление файла в индекс
+repo.index.add([file_name])
+
+# Создание коммита
+repo.index.commit(commit_message)
+
+# Отправка изменений на удаленный репозиторий
+origin = repo.remote('origin')
+origin.push()
